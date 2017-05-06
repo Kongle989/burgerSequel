@@ -1,0 +1,27 @@
+{
+  "name": "burger",
+  "version": "1.0.0",
+  "description": "an app that uses express for routing  \r handlebars to display the html  \r mysql database for persistent data  \r allows a user to input a burger that is saved to the database  \r then update the database after the user eat the burger",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kongle989/burger.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kongle989/burger/issues"
+  },
+  "homepage": "https://github.com/Kongle989/burger#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.8",
+    "mysql": "^2.13.0"
+  }
+}
