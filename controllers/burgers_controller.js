@@ -3,19 +3,20 @@ var db = require('../models'),
     router = express.Router();
 
 router.get('/', function (req, res) {
-    db.Burger.findAll().then(function (dbBurger) {
+    db.Burger.findAll({
+        order: '`burger_name` ASC'
+
+    }).then(function (dbBurger) {
         var hbsOb = {
             burgers: dbBurger
         };
-        console.log("24\n"+JSON.stringify(hbsOb));
         res.render('index', hbsOb);
     })
 });
 
 router.post("/", function (req, res) {
     db.Burger.create({
-        burger_name: req.body.burger,
-        devoured: req.body.devoured
+        burger_name: req.body.burger
     }).then(function (dbBurger) {
         res.redirect('/');
     })
