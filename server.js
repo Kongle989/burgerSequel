@@ -4,7 +4,8 @@ var express = require('express'),
     app = express(),
     PORT = process.env.PORT || 7777,
     route = require('./controllers/burgers_controller.js'),
-    exphbs = require("express-handlebars");
+    exphbs = require("express-handlebars"),
+    db = require("./models");
 
 // DATA PARSING
 app.use(bodyParser.json());
@@ -13,14 +14,18 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({type: "application/vnd.api+json"}));
 app.use(methodOverride('_method'));
 // Static directory
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 
 app.use("/", route);
+app.use("/update", route);
+app.use("/create", route);
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // LISTEN TO ME
-app.listen(PORT, function () {
-    console.log("App listening on PORT " + PORT);
+db.sequelize.sync({ force: true }).then(function() {
+    app.listen(PORT, function() {
+        console.log("App listening on PORT " + PORT);
+    });
 });

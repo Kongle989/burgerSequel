@@ -5,13 +5,15 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
         },
         devoured: {
-            type: DataTypes.STRING,
-            defaultValue: "false"
-        },
-        eater: {
-            type: DataTypes.STRING,
-            allowNull: false
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
         }
+
+        // },
+        // eater: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false
+        // }
     });
 
 return Burger;
