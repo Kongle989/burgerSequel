@@ -1,6 +1,12 @@
 module.exports = function (sequelize, DataTypes) {
     var Eater = sequelize.define("Eater", {
-            name: DataTypes.STRING
+            name: {
+                type: DataTypes.STRING,
+                allowNull: false,
+                validate: {
+                    len: [1]
+                }
+            }
         },
         {
             classMethods: {

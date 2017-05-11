@@ -16,8 +16,9 @@ router.get('/', function (req, res) {
 
 router.post("/", function (req, res) {
     db.Burger.create({
-        burger_name: req.body.burger
-    }).then(function (dbBurger) {
+            burger_name: req.body.burger
+        }
+    ).then(function (dbBurger) {
         res.redirect('/');
     })
 });
